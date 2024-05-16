@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Todo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container w-25 border border-5 border-dark p-4">
+        <h2>Edit Task</h2>
+        <form action="/editTodo" method="post">
+            <input type="hidden" name="id" value="<%= item.id %>">
+            <div class="form-group">
+                <label for="task">Task:</label>
+                <input type="text" name="task" id="task" class="form-control" placeholder="Enter task"
+                    value="<%= item.task %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (Optional, only if you need Bootstrap JavaScript functionality) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container w-25 border border-5 border-dark p-4 mt-5">
+        <h3>Add Task</h3>
+        <form action="/addTodo" method="post" class="mb-4">
+            <input type="text" name="task" class="form-control" placeholder="Enter task" required>
+            <button type="submit" class="btn btn-primary mt-2">Apply</button>
+        </form>
+<hr class="border border-dark">
+        <h3>Task List</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% todoItems.forEach(item => { %>
+                <tr>
+                    <td><%= item.task %></td>
+                    <td>
+                        <a href="/editTodo?id=<%= item.id %>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/deleteTodo?id=<%= item.id %>" class="btn btn-danger btn-sm ml-2">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS  -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
